@@ -8,7 +8,7 @@ function user_setup()
 	state.PhysicalDefenseMode:options('PDT')
 	state.MagicalDefenseMode:options('MDT')
 	state.ResistDefenseMode:options('MEVA')
-	state.Weapons:options('Tizalmace','Sequence','None','Almace','MagicWeapons','MeleeClubs','MaccWeapons','HybridWeapons')
+	state.Weapons:options('Melee','Sequence','None','Almace','MagicWeapons','MeleeClubs','MaccWeapons','HybridWeapons')
 
     state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None','MP','SuppaBrutal','DWEarrings','DWMax'}
 
@@ -83,10 +83,21 @@ function init_gear_sets()
 
 	-- Fast cast sets for spells
 
-	sets.precast.FC = {main="Vampirism",sub="Vampirism",ammo="Impatiens",
-		head="Carmine Mask +1",neck="Voltsurge Torque",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
-		body="Helios Jacket",hands="Leyline Gloves",ring1="Kishar Ring",ring2="Lebeche Ring",
-		back="Perimede Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Carmine Greaves +1"}
+	sets.precast.FC = {
+		ammo="Ginsen",
+		head={ name="Herculean Helm", augments={'AGI+6','Weapon skill damage +3%','Mag. Acc.+13 "Mag.Atk.Bns."+13',}},
+		body={ name="Amalric Doublet", augments={'MP+60','"Mag.Atk.Bns."+20','"Fast Cast"+3',}},
+		hands={ name="Amalric Gages", augments={'INT+10','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+		legs="Malignance Tights",
+		feet={ name="Herculean Boots", augments={'Accuracy+28','Crit. hit damage +5%','DEX+7','Attack+6',}},
+		neck={ name="Jeweled Collar", augments={'"Fast Cast"+2','CHR+2',}},
+		waist="Siegel Sash",
+		left_ear="Loquac. Earring",
+		right_ear="Etiolation Earring",
+		left_ring="Sangoma Ring",
+		right_ring="Kishar Ring",
+		back="Solemnity Cape",
+	}
 
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket"})
 
@@ -265,10 +276,21 @@ function init_gear_sets()
 
 	-- Magical Spells --
 
-	sets.midcast['Blue Magic'].Magical = {main="Nibiru Cudgel",sub="Nibiru Cudgel",ammo="Pemphredo Tathlum",
-					 head="Jhakri Coronal +2",neck="Baetyl Pendant",ear1="Regal Earring",ear2="Friomisi Earring",
-					 body="Jhakri Robe +2",hands="Amalric Gages +1",ring1="Shiva Ring +1",ring2="Shiva Ring +1",
-				     back=gear.mab_jse_back,waist=gear.ElementalObi,legs="Jhakri Slops +2",feet="Jhakri Pigaches +2"}
+	sets.midcast['Blue Magic'].Magical = {
+		ammo="Mavi Tathlum",
+		head="Jhakri Coronal +1",
+		body={ name="Amalric Doublet", augments={'MP+60','"Mag.Atk.Bns."+20','"Fast Cast"+3',}},
+		hands={ name="Amalric Gages", augments={'INT+10','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+		legs={ name="Amalric Slops", augments={'MP+52','Mag. Acc.+13','"Mag.Atk.Bns."+13',}},
+		feet={ name="Amalric Nails", augments={'Mag. Acc.+15','"Mag.Atk.Bns."+15','"Conserve MP"+6',}},
+		neck="Sanctity Necklace",
+		waist="Eschan Stone",
+		left_ear="Friomisi Earring",
+		right_ear="Hecate's Earring",
+		left_ring="Acumen Ring",
+		right_ring="Locus Ring",
+		back="Solemnity Cape",
+	}
 					 
 	sets.midcast['Blue Magic'].Magical.Proc = {ammo="Hasty Pinion +1",
 		head="Carmine Mask +1",ear1="Enchntr. Earring +1",ear2="Loquacious Earring",
@@ -422,10 +444,21 @@ function init_gear_sets()
 
 	sets.idle.Sphere = set_combine(sets.idle, {body="Mekosu. Harness"})
 
-	sets.idle.PDT = {main="Mafic Cudgel",sub="Genmei Shield",ammo="Staunch Tathlum",
-				head="Malignance Chapeau",neck="Loricate Torque +1",ear1="Etiolation Earring", ear2="Ethereal Earring",
-		        body="Jhakri Robe +2",hands="Assim. Bazu. +3",ring1="Defending Ring",ring2="Dark Ring",
-				back="Moonlight Cape",waist="Flume Belt",legs="Ayanmo Cosciales +2",feet=gear.herculean_dt_feet}
+	sets.idle.PDT = {
+		ammo="Amar Cluster",
+		head="Malignance Chapeau",
+		body={ name="Amalric Doublet", augments={'MP+60','"Mag.Atk.Bns."+20','"Fast Cast"+3',}},
+		hands={ name="Herculean Gloves", augments={'Mag. Acc.+2','Weapon skill damage +3%','STR+14','"Mag.Atk.Bns."+12',}},
+		legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+		feet={ name="Herculean Boots", augments={'Accuracy+28','Crit. hit damage +5%','DEX+7','Attack+6',}},
+		neck="Twilight Torque",
+		waist="Flume Belt",
+		left_ear="Etiolation Earring",
+		right_ear="Ethereal Earring",
+		left_ring={ name="Dark Ring", augments={'Enemy crit. hit rate -2','Phys. dmg. taken -5%','Magic dmg. taken -3%',}},
+		right_ring="Defending Ring",
+		back="Solemnity Cape",
+	}
 
 	sets.idle.DTHippo = set_combine(sets.idle.PDT, {legs="Carmine Cuisses +1",feet="Hippo. Socks +1"})
 
@@ -460,20 +493,31 @@ function init_gear_sets()
 	sets.Assault = {ring1="Balrahn's Ring"}
 	
 	-- Weapons sets
-	sets.weapons.Tizalmace = {main="Tizona",sub="Almace"}
+	sets.weapons.Melee = {main="Colada",sub="Iris"}
 	sets.weapons.MeleeClubs = {main="Nehushtan",sub="Nehushtan"}
 	sets.weapons.Almace = {main="Almace",sub="Sequence"}
 	sets.weapons.Sequence = {main="Sequence",sub="Almace"}
-	sets.weapons.MagicWeapons = {main="Nibiru Cudgel",sub="Nibiru Cudgel"}
+	sets.weapons.MagicWeapons = {main="Iris",sub="Nibiru Cudgel"}
 	sets.weapons.MaccWeapons = {main="Iris",sub="Iris"}
 	sets.weapons.HybridWeapons = {main="Vampirism",sub="Vampirism"}
 
 	-- Engaged sets
 
-	sets.engaged = {main="Tizona",sub="Almace",ammo="Ginsen",
-			    head="Dampening Tam",neck="Mirage Stole +2",ear1="Cessance Earring",ear2="Brutal Earring",
-			    body="Adhemar Jacket +1",hands="Adhemar Wrist. +1",ring1="Epona's Ring",ring2="Petrov Ring",
-			    back=gear.da_jse_back,waist="Windbuffet Belt +1",legs="Samnuha Tights",feet=gear.herculean_ta_feet}
+	sets.engaged = {
+		ammo="Ginsen",
+		head={ name="Adhemar Bonnet", augments={'STR+10','DEX+10','Attack+15',}},
+		body={ name="Adhemar Jacket", augments={'DEX+10','AGI+10','Accuracy+15',}},
+		hands={ name="Adhemar Wristbands", augments={'DEX+10','AGI+10','Accuracy+15',}},
+		legs="Malignance Tights",
+		feet={ name="Herculean Boots", augments={'Accuracy+28','Crit. hit damage +5%','DEX+7','Attack+6',}},
+		neck="Asperity Necklace",
+		waist="Windbuffet Belt",
+		left_ear="Eabani Earring",
+		right_ear="Suppanomimi",
+		left_ring="Petrov Ring",
+		right_ring="Epona's Ring",
+		back="Solemnity Cape",
+	}
 
 	sets.engaged.AM = {main="Tizona",sub="Almace",ammo="Ginsen",
 			    head="Dampening Tam",neck="Mirage Stole +2",ear1="Cessance Earring",ear2="Telos Earring",
