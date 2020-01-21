@@ -1,4 +1,4 @@
-*All rights belong to Selindrile*
+**All rights belong to Selindrile**
 
 PLEASE DO NOT MESSAGE ME ABOUT ANYTHING THIRD PARTY IN GAME, however feel free to send me a way to contact you outside of game,
 	through	the game, and I'm happy to help, my preferred way of being contact is Discord, my Stream discord is here:
